@@ -1,27 +1,35 @@
 var Xray = require('x-ray'); 
+var fs = require('fs');
 
 var xray = new Xray();  
 
-// xray(
-//     'https://empireflippers.com/listing/40396/',
-//      '.listing--traffic', 
-//     [{
-//         ul : xray('li', ['li'])
-//     }]
-//     )(console.log)
+var createMonetizationMethodsArray = function (obj) {
+    var MonetizationMethods = []; 
 
+    obj.monetization.forEach( function (string ){
+        if (string.indexOf('Monetization Methods:') > -1 ){
+        var blah =  string.replace('Monetization Methods:','').trim().replace(' ', '').split(','); 
+            blah.forEach(function(item){
+                MonetizationMethods.push(item);
+            });     
+        }
+    });
 
-// xray(
-//     'https://empireflippers.com/listing/40396/',
-//      '.listing--traffic', 
-//     [{
-//         siteStats : xray('ul', [{
-//                 stat : xray('li', ['li']) 
-//         }])
-//     }]
-//     )(console.log).write('results.json'); 
+    var uniqueMonMethod  = function (a) {
+        return a.sort().filter(function(item, pos, ary) {
+            return !pos || item != ary[pos - 1];
+        })
+    }
 
+    obj.monetization = uniqueMonMethod(MonetizationMethods);
 
+fs.writeFile("test.json", JSON.stringify(obj), function(err) {  
+    if(err) {
+        return console.log(err);
+    }
+    console.log("The file was saved!");
+}); 
+}
 
 xray('https://empireflippers.com/listing/40396/', {
     siteStats: xray('.listing--traffic', 
@@ -29,14 +37,9 @@ xray('https://empireflippers.com/listing/40396/', {
             siteStats : xray('ul', [{
             stat : xray('li', ['li']) 
         }])
-    }])
-})(console.log).write('results.json'); 
+    }]), 
+    monetization: xray('.site ', ['p'])
+})(function(err, obj){
+    createMonetizationMethodsArray(obj);
+}); 
 
-    
-
-
-
-
-    // .write('results.json'); 
-    // .write(console.log());
-    

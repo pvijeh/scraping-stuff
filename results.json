@@ -12,7 +12,8 @@
             "11/2015: 324,084",
             "12/2015: 472,154",
             "01/2016: 316,765",
-            "02/2016: 277,430"
+            "02/2016: 277,430",
+            "03/2016: 99,009"
           ]
         },
         {
@@ -25,7 +26,8 @@
             "11/2015: 246,385",
             "12/2015: 372,758",
             "01/2016: 245,109",
-            "02/2016: 208,640"
+            "02/2016: 208,640",
+            "03/2016: 78,399"
           ]
         },
         {
@@ -38,10 +40,31 @@
             "11/2015: $78,047",
             "12/2015: $80,487",
             "01/2016: $22,071",
-            "02/2016: $21,559"
+            "02/2016: $21,559",
+            "03/2016: $20,011"
           ]
         }
       ]
     }
+  ],
+  "monetization": [
+    "SITE A: TLD .com",
+    "Stats Last Updated: 21st of April, 2016",
+    "Monetization Methods: Amazon, AdSense",
+    "Trademark: No",
+    "Site Created: 30th of September, 2014",
+    "Platform: WordPress",
+    "MOZ Domain Authority: 19",
+    "Alexa Rank: 265,010",
+    "Inbound Links: 243",
+    "SITE B: TLD .com",
+    "Stats Last Updated: 21st of April, 2016",
+    "Monetization Methods: AdSense, Amazon",
+    "Trademark: No",
+    "Site Created: 6th of October, 2014",
+    "Platform: WordPress",
+    "MOZ Domain Authority: 22",
+    "Alexa Rank: 167,753",
+    "Inbound Links: 249"
   ]
 }
